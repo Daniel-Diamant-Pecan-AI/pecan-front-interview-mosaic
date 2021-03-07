@@ -10,7 +10,7 @@ export class BoxComponent implements OnInit {
   @Input() x: number;
   @Input() y: number;
 
-  public stepSize = 200;
+  public stepSize = 150;
 
   constructor() {
   }
