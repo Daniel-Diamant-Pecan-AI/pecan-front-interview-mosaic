@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Tile} from '../mosaic/types/tile';
 import {SyncStoreService} from './sync-store.service';
+import {initMosaicData} from './init-mosaic-data';
 
 const mosaicLocalStorageKey = 'MOSAIC_DATA';
 
@@ -13,7 +14,7 @@ export class MosaicDataService {
   }
 
   get(): Tile[] {
-    return this.store.get(mosaicLocalStorageKey);
+    return this.store.get(mosaicLocalStorageKey) || initMosaicData;
   }
 
   set(data: Tile[]): void {

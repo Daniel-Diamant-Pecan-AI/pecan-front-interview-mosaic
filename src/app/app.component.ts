@@ -1,12 +1,17 @@
 import {Component} from '@angular/core';
-import {tilesData} from './tiles-data';
-
+import {Tile} from './mosaic/types/tile';
+import {initMosaicData} from './services/init-mosaic-data';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public cubes = tilesData;
+    public cubes: Tile[];
+
+    constructor() {
+        this.cubes = initMosaicData;
+    }
+
 }

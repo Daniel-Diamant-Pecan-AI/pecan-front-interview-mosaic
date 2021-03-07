@@ -1,6 +1,6 @@
-import {Tile} from './mosaic/types/tile';
+import {Tile} from '../mosaic/types/tile';
 
-export const tilesData: Tile[] = [
+export const initMosaicData: Tile[] = [
   {
     color: 'green',
     x: 0,
