@@ -8,10 +8,10 @@ import {initMosaicData} from './services/init-mosaic-data';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    public cubes: Tile[];
+    public tiles: Tile[];
 
     constructor() {
-        this.cubes = initMosaicData;
+        this.tiles = initMosaicData;
     }
 
 }

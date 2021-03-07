@@ -7,7 +7,7 @@ import {Tile} from '../types/tile';
   styleUrls: ['./mosaic.component.scss']
 })
 export class MosaicComponent implements OnInit {
-  @Input() cubes: Tile[];
+  @Input() tiles: Tile[];
 
   constructor() { }
 
