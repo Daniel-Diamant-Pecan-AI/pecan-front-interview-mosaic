@@ -1,11 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-box',
-  templateUrl: './box.component.html',
-  styleUrls: ['./box.component.scss']
+  selector: 'app-tile',
+  templateUrl: './tile.component.html',
+  styleUrls: ['./tile.component.scss']
 })
-export class BoxComponent implements OnInit {
+export class TileComponent implements OnInit {
   @Input() color: string;
   @Input() x: number;
   @Input() y: number;
