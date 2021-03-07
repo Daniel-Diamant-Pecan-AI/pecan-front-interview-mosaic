@@ -1,5 +1,5 @@
 <app-box
-  *ngFor="let cube of cubes"
+  *ngFor="let cube of cubes; trackBy: trackByIndex"
   [color]="cube.color"
   [x]="cube.x"
   [y]="cube.y"

@@ -14,4 +14,7 @@ export class MosaicComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public trackByIndex(index) {
+    return index
+  }
 }
