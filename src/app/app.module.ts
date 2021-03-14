@@ -1,16 +1,15 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import {AppComponent} from './app.component';
-import {MosaicModule} from './mosaic/mosaic.module';
+import {TileComponent} from "./tile/tile.component";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TileComponent
   ],
   imports: [
-    BrowserModule,
-    MosaicModule
+    BrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

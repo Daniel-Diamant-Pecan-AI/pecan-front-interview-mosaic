@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
-import {Tile} from './mosaic/types/tile';
+import {TileInterface} from './tile.interface';
 
-export const initTiles: Tile[] = [
+export const initTiles: TileInterface[] = [
   {x: 0, y: 0, color: 'green'},
   {x: 0, y: 1, color: 'red'},
   {x: 1, y: 1, color: 'blue'},
@@ -14,7 +14,7 @@ export const initTiles: Tile[] = [
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public tiles: Tile[];
+  public tiles: TileInterface[];
 
   constructor() {
     this.tiles = initTiles;
