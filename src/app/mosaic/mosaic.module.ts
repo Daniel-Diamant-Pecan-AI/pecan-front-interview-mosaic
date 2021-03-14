@@ -1,14 +1,12 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {MosaicComponent} from './mosaic/mosaic.component';
 import {TileComponent} from './tile/tile.component';
 
 
 @NgModule({
-    declarations: [TileComponent, MosaicComponent],
+    declarations: [TileComponent],
     exports: [
-        TileComponent,
-        MosaicComponent
+        TileComponent
     ],
     imports: [
         CommonModule

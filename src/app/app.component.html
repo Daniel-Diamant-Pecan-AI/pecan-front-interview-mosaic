@@ -1,1 +1,6 @@
-<app-mosaic [tiles]="tiles"></app-mosaic>
+<app-tile
+        *ngFor="let tile of tiles"
+        [color]="tile.color"
+        [x]="tile.x"
+        [y]="tile.y"
+></app-tile>
