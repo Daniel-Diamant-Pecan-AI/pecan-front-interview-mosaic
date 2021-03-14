@@ -18,20 +18,25 @@ export class TileComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  move(xOffset: number = 0, yOffset: number = 0) {
+    this.x = this.x + xOffset;
+    this.y = this.y + yOffset;
+  }
+
   up() {
-    this.y = this.y - 1;
+    this.move(0, -1);
   }
 
   left() {
-    this.x = this.x - 1;
+    this.move(-1, 0);
   }
 
   right() {
-    this.x = this.x + 1;
+    this.move(1, 0);
   }
 
   down() {
-    this.y = this.y + 1;
+    this.move(0, 1);
   }
 
 }
