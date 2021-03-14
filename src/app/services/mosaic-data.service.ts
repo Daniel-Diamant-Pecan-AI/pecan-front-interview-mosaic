@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {TileInterface} from './tile.interface';
-import {SyncStoreService} from '../store-services/sync-store.service';
+import {TileInterface} from '../tile.interface';
+import {SyncStoreService} from '../../store-services/sync-store.service';
 
 const mosaicLocalStorageKey = 'MOSAIC_DATA';
 
