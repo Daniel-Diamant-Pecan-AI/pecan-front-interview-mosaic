@@ -4,13 +4,13 @@ import {TileComponent} from './tile/tile.component';
 
 
 @NgModule({
-    declarations: [TileComponent],
-    exports: [
-        TileComponent
-    ],
-    imports: [
-        CommonModule
-    ]
+  declarations: [TileComponent],
+  exports: [
+    TileComponent
+  ],
+  imports: [
+    CommonModule
+  ]
 })
 export class MosaicModule {
 }
