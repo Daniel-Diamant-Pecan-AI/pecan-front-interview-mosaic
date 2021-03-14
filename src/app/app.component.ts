@@ -1,6 +1,12 @@
 import {Component} from '@angular/core';
 import {Tile} from './mosaic/types/tile';
-import {initMosaicData} from '../mocks/init-mosaic-data';
+
+export const initTiles: Tile[] = [
+  {x: 0, y: 0, color: 'green'},
+  {x: 0, y: 1, color: 'red'},
+  {x: 1, y: 1, color: 'blue'},
+  {x: 1, y: 2, color: 'yellow'}
+];
 
 @Component({
   selector: 'app-root',
@@ -11,7 +17,6 @@ export class AppComponent {
   public tiles: Tile[];
 
   constructor() {
-    this.tiles = initMosaicData;
+    this.tiles = initTiles;
   }
-
 }
