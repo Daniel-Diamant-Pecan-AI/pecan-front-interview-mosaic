@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Tile} from '../mosaic/types/tile';
 import {SyncStoreService} from './sync-store.service';
-import {initMosaicData} from './init-mosaic-data';
+import {initMosaicData} from '../../mocks/init-mosaic-data';
 
 const mosaicLocalStorageKey = 'MOSAIC_DATA';
 

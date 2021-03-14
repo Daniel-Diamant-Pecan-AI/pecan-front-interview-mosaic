@@ -1,4 +1,4 @@
-import {Tile} from '../mosaic/types/tile';
+import {Tile} from '../app/mosaic/types/tile';
 
 export const initMosaicData: Tile[] = [
   {

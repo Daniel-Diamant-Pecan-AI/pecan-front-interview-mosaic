@@ -20,12 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c44d76ef-8406-41a4-929f-cb7fdb943ce5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/init-mosaic-data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/mocks/init-mosaic-data.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/mosaic-data.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/mosaic-data.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -55,13 +62,14 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/mocks" />
+      <recent name="$PROJECT_DIR$/src/app/services" />
+      <recent name="$PROJECT_DIR$/src/app" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/app/services" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/app" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/app/services" />
       <recent name="$PROJECT_DIR$/src/app" />
     </key>
   </component>
@@ -89,7 +97,7 @@
       <option name="presentableId" value="Default" />
       <updated>1615145657550</updated>
       <workItem from="1615145658887" duration="5746000" />
-      <workItem from="1615742607979" duration="1498000" />
+      <workItem from="1615742607979" duration="1651000" />
     </task>
     <task id="LOCAL-00001" summary="Add mosaic app">
       <created>1615146246719</created>
@@ -189,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615744307101</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="gitignore">
+      <created>1615744360692</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1615744360692</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,7 +236,8 @@
     <MESSAGE value="remove mosaic" />
     <MESSAGE value="union up/left/right/down" />
     <MESSAGE value="indent" />
-    <option name="LAST_COMMIT_MESSAGE" value="indent" />
+    <MESSAGE value="gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="gitignore" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3636" y="228" width="1186" height="1008" key="#HTML" timestamp="1615744239280">
@@ -236,10 +252,10 @@
       <screen x="2560" y="25" width="2560" height="1415" />
     </state>
     <state x="2937" y="482" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.2560.1415/2560.25.2560.1415/5120.-442.1920.1055/5120.638.1920.1055@2560.25.2560.1415" timestamp="1615146165487" />
-    <state x="2560" y="25" width="2560" height="1415" key="CommitChangelistDialog2" timestamp="1615744306871">
+    <state x="2560" y="25" width="2560" height="1415" key="CommitChangelistDialog2" timestamp="1615744360518">
       <screen x="2560" y="25" width="2560" height="1415" />
     </state>
-    <state x="2560" y="25" width="2560" height="1415" key="CommitChangelistDialog2/0.25.2560.1415/2560.25.2560.1415/5120.-442.1920.1055/5120.638.1920.1055@2560.25.2560.1415" timestamp="1615744306871" />
+    <state x="2560" y="25" width="2560" height="1415" key="CommitChangelistDialog2/0.25.2560.1415/2560.25.2560.1415/5120.-442.1920.1055/5120.638.1920.1055@2560.25.2560.1415" timestamp="1615744360518" />
     <state x="2799" y="466" key="Vcs.Push.Dialog.v2" timestamp="1615151080276">
       <screen x="2560" y="25" width="2560" height="1415" />
     </state>

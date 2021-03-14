@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Tile} from './mosaic/types/tile';
-import {initMosaicData} from './services/init-mosaic-data';
+import {initMosaicData} from '../mocks/init-mosaic-data';
 
 @Component({
   selector: 'app-root',
