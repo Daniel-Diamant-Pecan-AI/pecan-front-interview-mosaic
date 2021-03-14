@@ -7,13 +7,15 @@ import {map} from "rxjs/operators";
 const tilesLocalStorageKey = 'TILES_DATA';
 
 export const initTiles: TileInterface[] = [
-  {x: 0, y: 0, color: 'green'},
-  {x: 0, y: 1, color: 'red'},
-  {x: 1, y: 1, color: 'blue'},
-  {x: 1, y: 2, color: 'yellow'},
-  {x: 2, y: 1, color: 'cyan'},
-  {x: 2, y: 2, color: 'pink'},
-  {x: 0, y: 3, color: 'purple'},
+  {x: 0, y: 0, color: '#5000FA'},
+  {x: 0, y: 1, color: '#5000FA'},
+  {x: 0, y: 2, color: '#5000FA'},
+  {x: 1, y: 0, color: '#5000FA'},
+  {x: 1, y: 1, color: '#5000FA'},
+  {x: 1, y: 2, color: '#5000FA'},
+  {x: 2, y: 0, color: '#5000FA'},
+  {x: 2, y: 1, color: '#5000FA'},
+  {x: 2, y: 2, color: '#5000FA'},
 ];
 
 @Injectable({
