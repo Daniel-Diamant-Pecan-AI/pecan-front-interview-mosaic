@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {TileInterface} from '../tile.interface';
 import {SyncStoreService} from '../../store-services/sync-store.service';
 
-const mosaicLocalStorageKey = 'MOSAIC_DATA';
+const tilesLocalStorageKey = 'TILES_DATA';
 
 export const initTiles: TileInterface[] = [
   {x: 0, y: 0, color: 'green'},
@@ -17,16 +17,16 @@ export const initTiles: TileInterface[] = [
 @Injectable({
   providedIn: 'root'
 })
-export class MosaicDataService {
+export class TilesDataService {
 
   constructor(private store: SyncStoreService) {
   }
 
   get(): TileInterface[] {
-    return this.store.get(mosaicLocalStorageKey) || initTiles;
+    return this.store.get(tilesLocalStorageKey) || initTiles;
   }
 
   set(data: TileInterface[]): void {
-    this.store.set(mosaicLocalStorageKey, data);
+    this.store.set(tilesLocalStorageKey, data);
   }
 }
