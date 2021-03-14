@@ -1,0 +1,196 @@
+Index: src/app/app.component.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import {Component} from '@angular/core';\nimport {Tile} from './mosaic/types/tile';\nimport {initMosaicData} from './services/init-mosaic-data';\n\n@Component({\n    selector: 'app-root',\n    templateUrl: './app.component.html',\n    styleUrls: ['./app.component.scss']\n})\nexport class AppComponent {\n    public tiles: Tile[];\n\n    constructor() {\n        this.tiles = initMosaicData;\n    }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/app.component.ts	(revision c3899caaa21e314ed1a9e536746619f44dee4396)
++++ src/app/app.component.ts	(date 1615150897353)
+@@ -1,6 +1,8 @@
+ import {Component} from '@angular/core';
+ import {Tile} from './mosaic/types/tile';
+ import {initMosaicData} from './services/init-mosaic-data';
++import {MosaicDataService} from './services/mosaic-data.service';
++import {merge, Subject} from 'rxjs';
+ 
+ @Component({
+     selector: 'app-root',
+@@ -10,8 +12,18 @@
+ export class AppComponent {
+     public tiles: Tile[];
+ 
+-    constructor() {
++    public tiles$ = this.mosaicStore.get();
++    public tilesSubject$ = new Subject<Tile[]>();
++
++    public unionTiles$ = merge(this.tiles$, this.tilesSubject$);
++
++    constructor(private mosaicStore: MosaicDataService) {
+         this.tiles = initMosaicData;
+     }
+ 
++    updateTiles(tiles: Tile[]) {
++        this.mosaicStore.set(tiles)
++            .subscribe(() =>  this.tilesSubject$.next(tiles));
++    }
++
+ }
+Index: src/app/services/mosaic-data.service.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import {Injectable} from '@angular/core';\nimport {Tile} from '../mosaic/types/tile';\nimport {SyncStoreService} from './sync-store.service';\nimport {initMosaicData} from './init-mosaic-data';\n\nconst mosaicLocalStorageKey = 'MOSAIC_DATA';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class MosaicDataService {\n\n  constructor(private store: SyncStoreService) {\n  }\n\n  get(): Tile[] {\n    return this.store.get(mosaicLocalStorageKey) || initMosaicData;\n  }\n\n  set(data: Tile[]): void {\n    this.store.set(mosaicLocalStorageKey, data);\n  }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/services/mosaic-data.service.ts	(revision c3899caaa21e314ed1a9e536746619f44dee4396)
++++ src/app/services/mosaic-data.service.ts	(date 1615151077790)
+@@ -1,7 +1,9 @@
+ import {Injectable} from '@angular/core';
+ import {Tile} from '../mosaic/types/tile';
+-import {SyncStoreService} from './sync-store.service';
+ import {initMosaicData} from './init-mosaic-data';
++import {AsyncStoreService} from './async-store.service';
++import {Observable} from 'rxjs';
++import {map} from 'rxjs/operators';
+ 
+ const mosaicLocalStorageKey = 'MOSAIC_DATA';
+ 
+@@ -10,14 +12,16 @@
+ })
+ export class MosaicDataService {
+ 
+-  constructor(private store: SyncStoreService) {
++  constructor(private store: AsyncStoreService) {
+   }
+ 
+-  get(): Tile[] {
+-    return this.store.get(mosaicLocalStorageKey) || initMosaicData;
++  get(): Observable<Tile[]> {
++    return this.store.get(mosaicLocalStorageKey).pipe(
++        map(res => res || initMosaicData)
++    );
+   }
+ 
+-  set(data: Tile[]): void {
+-    this.store.set(mosaicLocalStorageKey, data);
++  set(data: Tile[]): Observable<void> {
++    return this.store.set(mosaicLocalStorageKey, data);
+   }
+ }
+Index: src/app/app.component.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><app-mosaic [tiles]=\"tiles\"></app-mosaic>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/app.component.html	(revision c3899caaa21e314ed1a9e536746619f44dee4396)
++++ src/app/app.component.html	(date 1615150897356)
+@@ -1,1 +1,4 @@
+-<app-mosaic [tiles]="tiles"></app-mosaic>
++<app-mosaic
++        [tiles]="unionTiles$ | async"
++        (tilesChange)="updateTiles($event)"
++></app-mosaic>
+Index: src/app/mosaic/tile/tile.component.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import {Component, Input, OnInit} from '@angular/core';\n\n@Component({\n  selector: 'app-tile',\n  templateUrl: './tile.component.html',\n  styleUrls: ['./tile.component.scss']\n})\nexport class TileComponent implements OnInit {\n  @Input() color: string;\n  @Input() x: number;\n  @Input() y: number;\n\n  public stepSize = 150;\n\n  constructor() {\n  }\n\n  ngOnInit(): void {\n  }\n\n  up() {\n    this.y = this.y - 1;\n  }\n\n  left() {\n    this.x = this.x - 1;\n  }\n\n  right() {\n    this.x = this.x + 1;\n  }\n\n  down() {\n    this.y = this.y + 1;\n  }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/mosaic/tile/tile.component.ts	(revision c3899caaa21e314ed1a9e536746619f44dee4396)
++++ src/app/mosaic/tile/tile.component.ts	(date 1615150233970)
+@@ -1,4 +1,4 @@
+-import {Component, Input, OnInit} from '@angular/core';
++import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+ 
+ @Component({
+   selector: 'app-tile',
+@@ -10,6 +10,8 @@
+   @Input() x: number;
+   @Input() y: number;
+ 
++  @Output() move = new EventEmitter<[number, number]>();
++
+   public stepSize = 150;
+ 
+   constructor() {
+@@ -19,19 +21,19 @@
+   }
+ 
+   up() {
+-    this.y = this.y - 1;
++    this.move.next([0, -1]);
+   }
+ 
+   left() {
+-    this.x = this.x - 1;
++    this.move.next([-1, 0]);
+   }
+ 
+   right() {
+-    this.x = this.x + 1;
++    this.move.next([1, 0]);
+   }
+ 
+   down() {
+-    this.y = this.y + 1;
++    this.move.next([0, 1]);
+   }
+ 
+ }
+Index: src/app/mosaic/mosaic/mosaic.component.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import {Component, Input, OnInit} from '@angular/core';\nimport {Tile} from '../types/tile';\n\n@Component({\n  selector: 'app-mosaic',\n  templateUrl: './mosaic.component.html',\n  styleUrls: ['./mosaic.component.scss']\n})\nexport class MosaicComponent implements OnInit {\n  @Input() tiles: Tile[];\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n  public trackByIndex(index) {\n    return index\n  }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/mosaic/mosaic/mosaic.component.ts	(revision c3899caaa21e314ed1a9e536746619f44dee4396)
++++ src/app/mosaic/mosaic/mosaic.component.ts	(date 1615150686887)
+@@ -1,4 +1,4 @@
+-import {Component, Input, OnInit} from '@angular/core';
++import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+ import {Tile} from '../types/tile';
+ 
+ @Component({
+@@ -8,6 +8,7 @@
+ })
+ export class MosaicComponent implements OnInit {
+   @Input() tiles: Tile[];
++  @Output() tilesChange = new EventEmitter<Tile[]>();
+ 
+   constructor() { }
+ 
+@@ -17,4 +18,14 @@
+   public trackByIndex(index) {
+     return index
+   }
++
++  public moveTile(tile, [x, y]: [number, number]) {
++    const newTile = {...tile};
++    newTile.x = tile.x + x;
++    newTile.y = tile.y + y;
++    const newTiles = [...this.tiles];
++    const index = newTiles.indexOf(tile);
++    newTiles[index] = newTile;
++    this.tilesChange.next(newTiles);
++  }
+ }
+Index: src/app/mosaic/mosaic/mosaic.component.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><app-tile\n  *ngFor=\"let tile of tiles; trackBy: trackByIndex\"\n  [color]=\"tile.color\"\n  [x]=\"tile.x\"\n  [y]=\"tile.y\"\n></app-tile>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/mosaic/mosaic/mosaic.component.html	(revision c3899caaa21e314ed1a9e536746619f44dee4396)
++++ src/app/mosaic/mosaic/mosaic.component.html	(date 1615150302871)
+@@ -3,4 +3,5 @@
+   [color]="tile.color"
+   [x]="tile.x"
+   [y]="tile.y"
++  (move)="moveTile(tile, $event)"
+ ></app-tile>
