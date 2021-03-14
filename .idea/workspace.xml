@@ -20,10 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c44d76ef-8406-41a4-929f-cb7fdb943ce5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mocks/init-mosaic-data.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +96,7 @@
       <option name="presentableId" value="Default" />
       <updated>1615145657550</updated>
       <workItem from="1615145658887" duration="5746000" />
-      <workItem from="1615742607979" duration="2316000" />
+      <workItem from="1615742607979" duration="2661000" />
     </task>
     <task id="LOCAL-00001" summary="Add mosaic app">
       <created>1615146246719</created>
@@ -212,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615744491401</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="workspace">
+      <created>1615745171239</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1615745171239</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,7 +251,8 @@
     <MESSAGE value="indent" />
     <MESSAGE value="gitignore" />
     <MESSAGE value="move init data to mocks" />
-    <option name="LAST_COMMIT_MESSAGE" value="move init data to mocks" />
+    <MESSAGE value="workspace" />
+    <option name="LAST_COMMIT_MESSAGE" value="workspace" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3636" y="228" width="1186" height="1008" key="#HTML" timestamp="1615744239280">
@@ -261,10 +267,10 @@
       <screen x="2560" y="25" width="2560" height="1415" />
     </state>
     <state x="2937" y="482" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.2560.1415/2560.25.2560.1415/5120.-442.1920.1055/5120.638.1920.1055@2560.25.2560.1415" timestamp="1615146165487" />
-    <state x="2560" y="25" width="2560" height="1415" key="CommitChangelistDialog2" timestamp="1615744491223">
+    <state x="2560" y="25" width="2560" height="1415" key="CommitChangelistDialog2" timestamp="1615745171069">
       <screen x="2560" y="25" width="2560" height="1415" />
     </state>
-    <state x="2560" y="25" width="2560" height="1415" key="CommitChangelistDialog2/0.25.2560.1415/2560.25.2560.1415/5120.-442.1920.1055/5120.638.1920.1055@2560.25.2560.1415" timestamp="1615744491223" />
+    <state x="2560" y="25" width="2560" height="1415" key="CommitChangelistDialog2/0.25.2560.1415/2560.25.2560.1415/5120.-442.1920.1055/5120.638.1920.1055@2560.25.2560.1415" timestamp="1615745171069" />
     <state x="2799" y="466" key="Vcs.Push.Dialog.v2" timestamp="1615151080276">
       <screen x="2560" y="25" width="2560" height="1415" />
     </state>
