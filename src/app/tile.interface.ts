@@ -1,5 +1,5 @@
 export interface TileInterface {
-  color: string,
-  x: number,
-  y: number
+  color: string;
+  x: number;
+  y: number;
 }

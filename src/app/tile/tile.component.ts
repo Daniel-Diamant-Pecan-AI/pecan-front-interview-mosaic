@@ -1,9 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-tile',
-  templateUrl: './tile.component.html',
-  styleUrls: ['./tile.component.scss']
+  selector: "app-tile",
+  templateUrl: "./tile.component.html",
+  styleUrls: ["./tile.component.scss"]
 })
 export class TileComponent implements OnInit {
   @Input() color: string;
@@ -12,11 +12,9 @@ export class TileComponent implements OnInit {
 
   public stepSize = 150;
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   move(xOffset: number = 0, yOffset: number = 0) {
     this.x = this.x + xOffset;
@@ -38,5 +36,4 @@ export class TileComponent implements OnInit {
   down() {
     this.move(0, 1);
   }
-
 }

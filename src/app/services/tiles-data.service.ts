@@ -1,26 +1,24 @@
-import {Injectable} from '@angular/core';
-import {TileInterface} from '../tile.interface';
-import {SyncStoreService} from '../../store-services/sync-store.service';
+import { Injectable } from "@angular/core";
+import { TileInterface } from "../tile.interface";
+import { SyncStoreService } from "../../store-services/sync-store.service";
 
-const tilesLocalStorageKey = 'TILES_DATA';
+const tilesLocalStorageKey = "TILES_DATA";
 
 export const initTiles: TileInterface[] = [
-  {x: 0, y: 0, color: 'green'},
-  {x: 0, y: 1, color: 'red'},
-  {x: 1, y: 1, color: 'blue'},
-  {x: 1, y: 2, color: 'yellow'},
-  {x: 2, y: 1, color: 'cyan'},
-  {x: 2, y: 2, color: 'pink'},
-  {x: 0, y: 3, color: 'purple'},
+  { x: 0, y: 0, color: "green" },
+  { x: 0, y: 1, color: "red" },
+  { x: 1, y: 1, color: "blue" },
+  { x: 1, y: 2, color: "yellow" },
+  { x: 2, y: 1, color: "cyan" },
+  { x: 2, y: 2, color: "pink" },
+  { x: 0, y: 3, color: "purple" }
 ];
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class TilesDataService {
-
-  constructor(private store: SyncStoreService) {
-  }
+  constructor(private store: SyncStoreService) {}
 
   get(): TileInterface[] {
     return this.store.get(tilesLocalStorageKey) || initTiles;

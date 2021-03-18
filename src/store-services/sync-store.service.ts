@@ -1,10 +1,9 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from "@angular/core";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class SyncStoreService {
-
   get(key: string): any {
     const stored = localStorage.getItem(key);
     return JSON.parse(stored);

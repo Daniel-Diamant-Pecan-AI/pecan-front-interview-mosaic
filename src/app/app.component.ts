@@ -1,16 +1,16 @@
-import {Component} from '@angular/core';
-import {TileInterface} from './tile.interface';
+import { Component } from "@angular/core";
+import { TileInterface } from "./tile.interface";
 
 export const initTiles: TileInterface[] = [
-  {x: 0, y: 0, color: 'green'},
-  {x: 0, y: 1, color: 'red'},
-  {x: 1, y: 1, color: 'blue'},
-  {x: 1, y: 2, color: 'yellow'}
+  { x: 0, y: 0, color: "green" },
+  { x: 0, y: 1, color: "red" },
+  { x: 1, y: 1, color: "blue" },
+  { x: 1, y: 2, color: "yellow" }
 ];
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html'
+  selector: "app-root",
+  templateUrl: "./app.component.html"
 })
 export class AppComponent {
   public tiles: TileInterface[];
